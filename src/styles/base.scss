@@ -1,0 +1,27 @@
+.page {
+    max-width: 1200px; 
+    margin: 0 auto; 
+}
+
+* {
+   font-family: "Helvetica Neue", Helvetica, sans-serif;  
+}
+
+nav ul {
+    display: flex; 
+    li {
+        list-style: none; 
+        padding: 0 1rem; 
+        a {
+            text-decoration: none; 
+        }
+    }
+}
+
+
+
+$green: green;
+
+a {
+    color:$green; 
+}
