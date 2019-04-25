@@ -10,6 +10,9 @@ const BlogPage = () => {
         allWordpressPost ( sort: { fields: date, order: DESC }) {
         edges {
             node {
+                featured_media {
+                    source_url
+                }
                 date (formatString:"MMMM Do, YYYY")
                 title
                 slug
