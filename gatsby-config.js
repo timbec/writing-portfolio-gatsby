@@ -23,6 +23,7 @@ module.exports = {
                     "**/categories",
                     "**/posts",
                     "**/pages",
+                    "**/fiction",
                     "**/media",
                     "**/tags",
                     "**/taxonomies",

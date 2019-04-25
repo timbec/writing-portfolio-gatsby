@@ -3,9 +3,6 @@ import { graphql } from 'gatsby';
 
 import Layout from '../components/layout';
 
-export const query = graphql`
-
-`
 
 const BlogPost = (props) => {
     return (

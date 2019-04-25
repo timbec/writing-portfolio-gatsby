@@ -27,19 +27,18 @@ const BlogPage = () => {
     return (
         <Layout>
             <section>
-                <h1>Writing</h1>
+                <h1>Full List</h1>
                 <ul>
                     {
                         data.allWordpressPost.edges.map((post) => {
                             return (
                                 <li className="post-link">
-                                    <h2>
-                                        <Link to={post.node.slug}>
-                                            {
-                                                post.node.title
-                                            }
-                                        </Link>
-                                    </h2>
+
+
+                                    <Link to={post.node.slug}>
+                                        <h2 dangerouslySetInnerHTML={{ __html: post.node.title }} />
+                                    </Link>
+
                                     <p>{post.node.date}</p>
 
                                 </li>
