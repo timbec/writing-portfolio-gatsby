@@ -20,10 +20,11 @@ export const query = graphql`
     }
 `
 const BlogPost = (props) => {
-    console.log(props.data);
+
     return (
         <Layout>
-            <h1>{props.data.wordpressPost.title}</h1>
+            <h1 dangerouslySetInnerHTML={{ __html: props.data.wordpressPost.title }} />
+
             <div className="entry-content">
                 <div dangerouslySetInnerHTML={{ __html: props.data.wordpressPost.content }} />
             </div>
