@@ -4,6 +4,7 @@ module.exports = {
         author: 'Tim Beckett'
     },
     plugins: [
+        'gatsby-plugin-react-helmet',
         {
             resolve: 'gatsby-source-wordpress',
             options: {

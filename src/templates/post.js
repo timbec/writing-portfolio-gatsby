@@ -2,6 +2,7 @@ import React from 'react';
 import { graphql } from 'gatsby';
 
 import Layout from '../components/layout';
+import Head from '../components/head';
 
 export const query = graphql`
     query($slug: String!) {
@@ -23,6 +24,7 @@ const BlogPost = (props) => {
 
     return (
         <Layout>
+            <Head title={props.data.wordpressPost.title} />
             <h1 dangerouslySetInnerHTML={{ __html: props.data.wordpressPost.title }} />
 
             <div className="entry-content">
