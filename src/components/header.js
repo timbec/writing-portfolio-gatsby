@@ -18,7 +18,8 @@ const Header = () => {
     `)
     return (
         <header>
-            <h1>{data.site.siteMetadata.title}</h1>
+            <h1>Tim Beckett</h1>
+            <h3>Writing Portfolio</h3>
 
             <nav className="menu-container">
                 <ul>
