@@ -3,6 +3,18 @@ import { Link, graphql, useStaticQuery } from 'gatsby';
 
 import Layout from '../components/layout';
 
+/**
+ * TODO: 
+ * Need to organize components itto folders (see how 'road to react' guy does this): 
+ * 1) 'static' folder for header/footer/layout. 
+ * 2) 'home' folder for home page. 
+ * Need Four components: 
+ * 1) Search
+ * 2) Featured
+ * 3) Sections
+ * 4) All articles (with 'read more' after 3 or 6 first articles)
+ */
+
 const HomePage = () => {
     const data = useStaticQuery(graphql`
     query {
@@ -39,8 +51,6 @@ const HomePage = () => {
                         data.allWordpressPost.edges.map((post) => {
                             return (
                                 <li className="post-link">
-
-
                                     <Link to=
                                         {post.node.slug}>
                                         <figure>
