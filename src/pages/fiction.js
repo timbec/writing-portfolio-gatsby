@@ -12,6 +12,9 @@ const FictionPage = () => {
         }}}) {
         edges {
             node {
+                featured_media {
+                    source_url
+                }
                 date (formatString:"MMMM Do, YYYY")
                 title
                 slug
@@ -35,7 +38,9 @@ const FictionPage = () => {
                         data.allWordpressPost.edges.map((post) => {
                             return (
                                 <li className="post-link">
-
+                                    <Link to={post.node.slug}>
+                                        <img src={post.node.featured_media.source_url} alt="" />
+                                    </Link>
 
                                     <Link to={post.node.slug}>
                                         <h2 dangerouslySetInnerHTML={{ __html: post.node.title }} />
