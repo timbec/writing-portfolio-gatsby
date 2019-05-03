@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+//import Link from 'gatsby';
+
+import Button from '../Button/index';
 
 function isSearched(searchTerm) {
     return function (item) {
@@ -10,30 +13,27 @@ function isSearched(searchTerm) {
 // const isSearched = searchTerm => item =>
 //     item.title.toLowerCase().includes(searchTerm.toLowerCase());
 
-class Table extends Component {
-    render() {
-        const { list, pattern, onDismiss } = this.props;
+//needs to be exported to separate file, but returns an error for now.
+function Table({ list, pattern, onDismiss }) {
 
-        return (
-            <div>
-                {list.filter(isSearched(pattern)).map(item =>
-                    <div key={item.objectID}>
-                        <span>
-                            <a href={item.url}>{item.title}</a>
-                        </span>
-                        <span>{item.author}</span>
-                        <span>{item.num_comments}</span>
-                        <span>{item.points}</span>
+    return (
+        <div>
+            {list.filter(isSearched(pattern)).map(item =>
+                <div key={item.objectID}>
+                    <span>
+                        <a href={item.url}>{item.title}</a>
+                    </span>
+                    <span>{item.author}</span>
+                    <span>{item.num_comments}</span>
+                    <span>{item.points}</span>
 
-                        <button onClick={() =>
-                            onDismiss(item.objectID)} type="button">
-                            Dismiss
-                        </button>
-                    </div>
-                )}
-            </div>
-        )
-    }
+                    <Button
+                        onClick={() => onDismiss(item.objectID)}
+                    >Dismiss</Button>
+                </div>
+            )}
+        </div>
+    )
 }
 
 export default Table; 

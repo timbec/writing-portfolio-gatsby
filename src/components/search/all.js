@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
-import Link from 'gatsby';
+
+import Search from './Search/index';
+import Table from './Table/index';
 
 const DEFAULT_QUERY = 'fiction';
+const PATH_BASE = 'https://timbbeckett-writing.com/wp/v2/posts';
+const PATH_SEARCH = '?search';
+const PARAM_SEARCH = '?search=';
 const list = [
     {
         title: 'React',
@@ -69,31 +74,45 @@ class AllPosts extends Component {
         const { searchTerm, list } = this.state;
         return (
             <div className="all-posts">
-                <form>
-                    <input
-                        type="text"
-                        value={searchTerm}
-                        onChange={this.onSearchChange}
-                    />
-                </form>
-                {list.filter(isSearched(searchTerm)).map(item =>
-                    <div key={item.objectID}>
-                        <span>
-                            <a href={item.url}>{item.title}</a>
-                        </span>
-                        <span>{item.author}</span>
-                        <span>{item.num_comments}</span>
-                        <span>{item.points}</span>
-
-                        <button onClick={() =>
-                            this.onDismiss(item.objectID)} type="button">
-                            Dismiss
-                        </button>
-                    </div>
-                )}
+                <Search
+                    value={searchTerm}
+                    onChange={this.onSearchChange}
+                >Search: </Search>
+                <Table
+                    list={list}
+                    pattern={searchTerm}
+                    onDismiss={this.onDismiss}
+                />
             </div>
         )
     }
 }
 
-export default AllPosts; 
+export default AllPosts;
+
+// //needs to be exported to separate file, but returns an error for now.
+// class Table extends Component {
+//     render() {
+//         const { list, pattern, onDismiss } = this.props;
+
+//         return (
+//             <div>
+//                 {list.filter(isSearched(pattern)).map(item =>
+//                     <div key={item.objectID}>
+//                         <span>
+//                             <a href={item.url}>{item.title}</a>
+//                         </span>
+//                         <span>{item.author}</span>
+//                         <span>{item.num_comments}</span>
+//                         <span>{item.points}</span>
+
+//                         <button onClick={() =>
+//                             onDismiss(item.objectID)} type="button">
+//                             Dismiss
+//                         </button>
+//                     </div>
+//                 )}
+//             </div>
+//         )
+//     }
+// }
