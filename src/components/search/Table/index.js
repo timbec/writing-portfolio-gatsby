@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-//import Link from 'gatsby';
+import Link from 'gatsby';
 
 import Button from '../Button/index';
 
@@ -20,7 +20,11 @@ function Table({ list, pattern, onDismiss }) {
         <div>
             {list.filter(isSearched(pattern)).map(item =>
                 <div key={item.id}>
-                    <h1>{item.title.rendered}</h1>
+                    <h1>
+                        <a href={item.slug}>
+                            {item.title.rendered}
+                        </a>
+                    </h1>
                 </div>
             )}
         </div>
