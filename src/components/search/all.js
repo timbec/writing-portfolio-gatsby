@@ -3,10 +3,10 @@ import React, { Component } from 'react';
 import Search from './Search/index';
 import Table from './Table/index';
 
-const DEFAULT_QUERY = 'fiction';
-const PATH_BASE = 'https://timbbeckett-writing.com/wp/v2/posts';
-const PATH_SEARCH = '?search';
-const PARAM_SEARCH = '?search=';
+const DEFAULT_QUERY = '';
+const PATH_BASE = 'http://writing-site.test/wp-json/wp/v2/posts';
+const PATH_SEARCH = 'search=';
+const PARAM_SEARCH = 'search=';
 const list = [
     {
         title: 'React',
@@ -27,15 +27,11 @@ const list = [
 
 ]
 
-function isSearched(searchTerm) {
-    return function (item) {
-        return item.title.toLowerCase().includes(searchTerm.toLowerCase());
-    }
-}
+
 
 //ES6
 // const isSearched = searchTerm => item =>
-//     item.title.toLowerCase().includes(searchTerm.toLowerCase());
+//     item.title.rendered.toLowerCase().includes(searchTerm.toLowerCase());
 
 class AllPosts extends Component {
 
@@ -43,14 +39,44 @@ class AllPosts extends Component {
         super(props);
 
         this.state = {
-            list,
-            searchTerm: '',
+            result: null,
+            searchTerm: DEFAULT_QUERY,
         }
 
-        this.onDismiss = this.onDismiss.bind(this);
-
+        this.setSearchPosts = this.setSearchPosts.bind(this);
         this.onSearchChange = this.onSearchChange.bind(this);
+
         this.onDismiss = this.onDismiss.bind(this);
+    }
+
+    /**
+     * 
+     * @param {result} result 
+     * Sets state to result object. 
+     */
+    setSearchPosts(result) {
+        console.log(result);
+        this.setState({ result });
+    }
+
+    componentDidMount() {
+        const { searchTerm } = this.state;
+
+        fetch(`${PATH_BASE}?${PATH_SEARCH}${searchTerm}`)
+            .then(response => response.json())
+            .then(result =>
+                this.setSearchPosts(result))
+            .catch(error => error);
+    }
+
+    /**
+     * 
+     * @param {event} event 
+     * takes event and updates searchTerm state to    
+     * match event.target.value
+     */
+    onSearchChange(event) {
+        this.setState({ searchTerm: event.target.value })
     }
 
     /**
@@ -66,12 +92,10 @@ class AllPosts extends Component {
         this.setState({ list: updatedList });
     }
 
-    onSearchChange(event) {
-        this.setState({ searchTerm: event.target.value })
-    }
-
     render() {
-        const { searchTerm, list } = this.state;
+        const { searchTerm, result } = this.state;
+
+        if (!result) { return null; }
         return (
             <div className="all-posts">
                 <Search
@@ -79,7 +103,7 @@ class AllPosts extends Component {
                     onChange={this.onSearchChange}
                 >Search: </Search>
                 <Table
-                    list={list}
+                    list={result}
                     pattern={searchTerm}
                     onDismiss={this.onDismiss}
                 />
