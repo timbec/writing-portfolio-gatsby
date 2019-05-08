@@ -55,7 +55,6 @@ class AllPosts extends Component {
      * Sets state to result object. 
      */
     setSearchPosts(result) {
-        console.log(result);
         this.setState({ result });
     }
 
