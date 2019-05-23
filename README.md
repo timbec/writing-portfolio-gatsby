@@ -5,3 +5,5 @@ https://www.youtube.com/watch?v=8t0vNu2fCCM&t=10584s
 The reason for using a JS front end on top of Wordpress is I have well over a couple hundred posts on this site, organized by category (and to some extent by tag); thus moving to a separate stack would have been difficult. 
 
 This is very much a work in process. CSS Grid will be used to organize styles on the front end. 
+
+My model for the basic design is the online travel magazine Roads and Kingdoms: https://roadsandkingdoms.com/

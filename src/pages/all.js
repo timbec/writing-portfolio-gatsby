@@ -2,17 +2,17 @@ import React from 'react';
 import { Link } from 'gatsby';
 import Layout from '../components/layout';
 
-import AllPosts from '../components/search/all';
+import SearchPage from '../components/search/all';
 
-const ListAllPosts = () => {
+const ListSearchPage = () => {
     return (
         <Layout>
             <section>
                 <h1>All Posts</h1>
-                <AllPosts></AllPosts>
+                <SearchPage></SearchPage>
             </section>
         </Layout>
     )
 }
 
-export default ListAllPosts; 
+export default ListSearchPage; 
