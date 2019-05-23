@@ -7,6 +7,7 @@ const RemainingArticles = () => {
     const data = useStaticQuery(graphql`
     query {
   allWordpressPost (
+    limit: 10,
     filter:{
       sticky:{
         eq:false
