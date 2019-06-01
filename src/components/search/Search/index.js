@@ -1,17 +1,17 @@
-import React, { Component } from 'react';
+// import React, { Component } from 'react';
 
-function Search({ value, onChange, children }) {
+// function Search({ value, onChange, children }) {
 
-    return (
-        <form>
-            {children}
-            <input
-                type="text"
-                value={value}
-                onChange={onChange}
-            />
-        </form>
-    )
-}
+//     return (
+//         <form>
+//             {children}
+//             <input
+//                 type="text"
+//                 value={value}
+//                 onChange={onChange}
+//             />
+//         </form>
+//     )
+// }
 
-export default Search; 
+// export default Search; 
