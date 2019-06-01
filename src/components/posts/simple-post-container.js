@@ -2,15 +2,12 @@ import React from 'react';
 import { Link } from 'gatsby';
 import Image from 'gatsby-image';
 
-function PostContainer({ post }) {
-    console.log(post);
+function SimplePostContainer({ post }) {
     return (
-        <li className="post-link" key={post.node.id}>
+        <li className="post-link">
             <Link to=
                 {post.node.slug}>
-                <figure>
-                    <img src={post.node.featured_media.source_url} />
-                </figure>
+
                 <h2 dangerouslySetInnerHTML={{ __html: post.node.title }} />
             </Link>
 
@@ -20,4 +17,4 @@ function PostContainer({ post }) {
     )
 }
 
-export default PostContainer;
+export default SimplePostContainer;

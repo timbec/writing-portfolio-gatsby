@@ -1,10 +1,11 @@
 import React, { Components } from 'react';
 import { Link, graphql, useStaticQuery } from 'gatsby';
 
+import SimplePostContainer from '../posts/simple-post-container.js';
 
 //might need to change to component
 const RemainingArticles = () => {
-    const data = useStaticQuery(graphql`
+  const data = useStaticQuery(graphql`
     query {
   allWordpressPost (
     limit: 10,
@@ -32,27 +33,18 @@ const RemainingArticles = () => {
   }
 }
 `)
-    return (
-        <ul>
-            {
-                data.allWordpressPost.edges.map((post) => {
-                    return (
-                        <li className="post-link">
-                            <Link to=
-                                {post.node.slug}>
+  return (
+    <ul>
+      {
+        data.allWordpressPost.edges.map((post) => {
+          return (
+            <SimplePostContainer key={post.node.wordpress_id} post={post} />
 
-                                <h2 dangerouslySetInnerHTML={{ __html: post.node.title }} />
-                            </Link>
-
-                            <p>{post.node.date}</p>
-
-                        </li>
-
-                    )
-                })
-            }
-        </ul>
-    )
+          )
+        })
+      }
+    </ul>
+  )
 }
 
 

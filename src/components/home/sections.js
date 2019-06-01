@@ -6,17 +6,17 @@ const MainSections = () => {
         <section className="main-sections">
             <ul className="section-box">
                 <li className="section-box__item section-box__item--active ">
-                    <Link to="/fiction" class="section-box__link">
+                    <Link to="/fiction" className="section-box__link">
                         Fiction
                     </Link>
                 </li>
                 <li className="section-box__item">
-                    <Link to="/non-fiction" class="section-box__link">
+                    <Link to="/non-fiction" className="section-box__link">
                         Non Fiction
                     </Link>
                 </li>
                 <li className="section-box__item">
-                    <Link to="photography" class="section-box__link">
+                    <Link to="photography" className="section-box__link">
                         Photography
                     </Link>
                 </li>

@@ -47,7 +47,7 @@ const FeaturedArticles = () => {
         {
           data.allWordpressPost.edges.map((post) => {
             return (
-              <PostContainer key={post.id} post={post} />
+              <PostContainer key={post.node.wordpress_id} post={post} />
             )
           })
         }
