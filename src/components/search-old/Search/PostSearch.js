@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import PostsList from './PostList';
 
 class PostsSearch extends Component {
