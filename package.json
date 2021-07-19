@@ -22,7 +22,7 @@
     "gatsby-remark-images": "^3.0.10",
     "gatsby-remark-relative-images": "^0.2.2",
     "gatsby-source-filesystem": "^2.0.28",
-    "gatsby-source-wordpress": "^3.0.54",
+    "gatsby-source-wordpress": "^4.0.8",
     "gatsby-transformer-remark": "^2.3.8",
     "gatsby-transformer-sharp": "^2.1.19",
     "graphql": "^14.3.0",
